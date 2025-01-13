@@ -1,17 +1,17 @@
-
 CREATE TABLE users
 (
     id         INT AUTO_INCREMENT PRIMARY KEY COMMENT '用户ID', -- ID字段，自动递增
     userName   VARCHAR(100) NOT NULL COMMENT '用户名',
+    password   VARCHAR(255) NOT NULL COMMENT '密码',
     age        INT          default NULL COMMENT '年龄',
     email      VARCHAR(100) default NULL COMMENT '电子邮件',
     gender     INT          DEFAULT 0 COMMENT '性别（0 未知，1 男，2 女）',
     tel        VARCHAR(20)  default NULL COMMENT '联系电话',
-    roleId     INT          default 0 COMMENT '角色id',
-    status     TINYINT(1)   DEFAULT 1 COMMENT '状态（1 启用，0 禁用）',
+    roleId     INT          NOT NULL COMMENT '角色id',
+    status     TINYINT(1) DEFAULT 1 COMMENT '状态（1 启用，0 禁用）',
     remark     TEXT         default NUL COMMENT '备注',
     createTime DATETIME     NOT NULL COMMENT '创建时间',          -- 创建时间
-    creatorId  INT NOT NULL COMMENT '创建人id',           -- 创建人
+    creatorId  INT          NOT NULL COMMENT '创建人id',         -- 创建人
     updateTime DATETIME     default NULL COMMENT '更新时间'       -- 更新时间
 ) COMMENT='用户信息表';
 
